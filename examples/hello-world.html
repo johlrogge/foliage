@@ -1,0 +1,14 @@
+<html>
+<head>
+  <script src="loader.js" type="text/javascript"></script>
+  <script src="../lib/curl-0.6/curl.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    curl(['hello-world'], function(main) {
+       main('#content');
+    });
+  </script>
+</head>
+<body>
+  <div id='content'></div>
+</body>
+</html>
