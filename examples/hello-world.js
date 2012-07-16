@@ -1,5 +1,3 @@
 define(['foliage'], function(f) {
-    return function(element) {
-	f.p("hello-world")(element);
-    }
+    return f.p("hello-world");
 });
