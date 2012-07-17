@@ -1,6 +1,6 @@
 Foliage - HTML in javascript
 ============================
-The basic idea of foliage is to provide modular, non-magical, easy to use, easy to extend, html-builders in javascript.
+The basic idea of foliage is to provide modular, non-magical, easy to use, easy to extend, html-builders in javascript. The philosophy is that markup is for computers and code is for humans. Foliage tries to make client coding as human as possible.
 
 
 Easy to use
@@ -36,6 +36,32 @@ define(['foliage'], function(f) {
 
 The above example shows basic composability and also introduces attributes.
 
+Here is a summary of of the effect of different arguments to an element:
+
+```javascript
+"a string"
+```
+
+becomes a text element under the element
+
+```javascript
+{attr1: 'value1', attr2: "value2"}
+```
+
+Becomes attributes on the element
+
+```javascript
+l.span("text")
+```
+
+Becomes a span element with a text element under the current element.
+
+```javascript
+function(parent) {$(parent).click(function(){alert("somebody clicked the element")})}
+``` 
+
+Invokes the function on element when invoked.
+
 For your convenience all html 4 elements has been declared on the foliage object.
 
 Non-magical
@@ -48,13 +74,12 @@ Foliage is modular both on a high and a low level. On a high level foliage relie
 
 On a lower level Foliage is composable using functional programming. Therefore it is easy to reuse concepts and layouts with foliage. In the examples we have seen the result of each element invocation is a function taking anything that jquery interprets as an element as it's argument. Any number of these functions can then be passed as arguments into other elements to form trees.
 
+Foliage does nothing to enforce this but all of foliage is written in a stateless fashion. What that means is that each foliage function will behave the same given that you call it with the same parameters. Beware though, foliage functions manipulate the DOM that means that the functions do have sideffects.
 
+Without exceptions the followin is true for foliage:
 
-
-
-
-
-
-
-
-
+ * composing foliage elements does not have sideffects
+ * passing a JQuery element or expression to a foliage element will typically alter that element or add elements to it.
+ 
+ 
+ 
