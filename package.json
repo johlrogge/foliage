@@ -1,0 +1,14 @@
+{
+    "name": "foliage",
+    "version": "0.0.1",
+    "description": "A DSL to write HTML to a DOM",
+    "author": { "name": "Joakim Ohlrogge" },
+    "contributors": [{
+        "name": "Joakim Ohlrogge",
+        "url": "https://github.com/johlrogge"
+    }],
+    "devDependencies": {
+        "buster-amd": "*",
+	"buster": "*"
+    }
+}
