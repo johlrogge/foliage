@@ -1,5 +1,5 @@
 define(['buster', 'foliage', 'jquery', 'underscore'],
-       function(buster, f, $) {
+       function(buster, f, $, _) {
 
 	   var assert = buster.assert;
 	   var refute = buster.refute;
@@ -49,6 +49,14 @@ define(['buster', 'foliage', 'jquery', 'underscore'],
 			 {alt: "a cute kitten"})(e);
 		   assert.equals(e.find('img').attr('src'), "http://placekitten.com/e/200/300");
 		   assert.equals(e.find('img').attr('alt'), "a cute kitten");
+	       }),
+	       "lists of text elements are added as individual elements" : elemTest(function(e) {
+		   f.p(["text1", "text2"])(e);
+		   assert.equals(e.find('p').text().trim(),"text1\ntext2");
+	       }),
+	       "sublists of text elements are added as individual elements" : elemTest(function(e) {
+		   f.p(["text1", ["text2", "text3"]])(e);
+		   assert.equals(e.find('p').text().trim(),"text1\ntext2\ntext3");
 	       })
            });
        });

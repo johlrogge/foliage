@@ -8,6 +8,10 @@ curl({
     }
 });
 
+define('buster', function() {
+    return buster;
+})
+
 window.require = curl;
 
 
